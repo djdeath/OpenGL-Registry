@@ -623,4 +623,6 @@
 </li>
 <li value=299><a href="extensions/EXT/EXT_texture_format_sRGB_override.txt">GL_EXT_texture_format_sRGB_override</a>
 </li>
+<li value=300><a href="extensions/INTEL/INTEL_no_rendering.txt">GL_INTEL_no_rendering</a>
+</li>
 </ol>

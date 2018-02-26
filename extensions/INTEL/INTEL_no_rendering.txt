@@ -1,0 +1,125 @@
+Name
+
+    INTEL_no_rendering
+
+Name Strings
+
+    GL_INTEL_no_rendering
+
+Contact
+
+    Lionel Landwerlin, Intel  (lionel.g.landwerlin 'at' intel.com)
+
+Contributors
+
+    Lionel Landwerlin, Intel
+
+Status
+
+    Draft.
+
+Version
+
+    Last Modified Date:        02/26/2018
+    INTEL Revision:            1
+
+Number
+
+    OpenGL Extension #521
+    OpenGL ES Extension #300
+
+Dependencies
+
+    OpenGL dependencies:
+
+        OpenGL 3.0 is required.
+
+        The extension is written against the OpenGL 4.6 Specification, Core
+        Profile, July 30, 2017.
+
+    OpenGL ES dependencies:
+
+        This extension is written against the OpenGL ES 3.2 Specification,
+        November 3, 2016.
+
+Overview
+
+    The purpose of this extension is to allow an application to disable all
+    rendering operations emitted to the GPU through the stream of commands. All
+    hardware units involved in the 3D pipeline are configured as expected but no
+    rendering operation is triggered (i.e. vertices are not processed, shaders
+    are not run, etc...)
+
+    Such a feature can be useful to figure out whether a workload is CPU bound.
+
+    New preprocessor #defines are added to the OpenGL Shading Language:
+
+      #define GL_INTEL_no_rendering 1
+
+New Procedures and Functions
+
+    None.
+
+New Tokens
+
+    Accepted by the <target> parameter of Enable, Disable, IsEnabled:
+
+        NO_RENDERING_INTEL  0x83FC
+
+Additions to the OpenGL 4.6 (Core Profile) Specification
+
+    Modify section 2.4 Rendering Commands (add new text at the end of the
+    section)
+
+    The above commands can be turned into a NOOP in the steam of commands sent
+    to the GPU through enabling NO_RENDERING_INTEL.
+
+Additions to Chapter 14.2.2, Shader Inputs of the OpenGL ES 3.2 Specification
+
+    Modify section 2.4 Rendering Commands (add new text at the end of the
+    section)
+
+    The above commands can be turned into a NOOP in the steam of commands sent
+    to the GPU through enabling NO_RENDERING_INTEL.
+
+Additions to the AGL/GLX/WGL Specifications
+
+    None.
+
+GLX Protocol
+
+    None.
+
+Errors
+
+    None.
+
+New State in OpenGL 4.6 Core Profile
+
+    (add new row to the Table 23.74, Miscellaneous)
+
+                                     Initial
+    Get Value      Type  Get Command  Value  Description                 Sec.
+    -------------  ----  ----------- ------- -------------------------   ------
+    NO_RENDERING_  B     IsEnabled()  FALSE  Disable rendering           2.4
+    INTEL
+
+New State in OpenGL ES 3.2
+
+    (add new row to the Table 21.57, Miscellaneous)
+
+                                     Initial
+    Get Value      Type  Get Command  Value  Description                 Sec.
+    -------------  ----  ----------- ------- -------------------------   ------
+    NO_RENDERING_  B     IsEnabled()  FALSE  Disable rendering           2.4
+    INTEL
+
+Issues
+
+    None.
+
+Revision History
+
+    Rev.     Date       Author       Changes
+    ----  ----------  ----------  -----------------------------------------
+      1    26/2/2018  llandwerlin Initial revision.
